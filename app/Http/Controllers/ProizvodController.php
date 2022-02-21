@@ -17,7 +17,7 @@ class ProizvodController extends Controller
 
         else{
             $data = proizvod::all();
-            return view('user.proizvodi',compact('data'));
+            return view('User.proizvodi',compact('data'));
         }
     }
 
@@ -26,11 +26,11 @@ class ProizvodController extends Controller
         if(Auth::id())
         {
             $data = proizvod::all();
-            return view('user.proizvodi',compact('data'));
+            return view('User.proizvodi',compact('data'));
         }
         else{
             $data = proizvod::all();
-            return view('user.proizvodi',compact('data')); 
+            return view('User.proizvodi',compact('data')); 
         }
 
         
