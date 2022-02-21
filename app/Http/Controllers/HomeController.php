@@ -22,7 +22,7 @@ class HomeController extends Controller
             $data = proizvod::paginate(3);
             $user=auth()->user();
             $count=kosarica::where('mobitel',$user->phone)->count();
-            return view('user.home',compact('data','count'));
+            return view('User.home',compact('data','count'));
         }
     }
 
@@ -35,7 +35,7 @@ class HomeController extends Controller
         else
         {
             $data = proizvod::paginate(3);
-            return view('user.home',compact('data'));
+            return view('User.home',compact('data'));
         }
         
     }
@@ -45,10 +45,10 @@ class HomeController extends Controller
         $search=$request->search;
         if($search=='')
         {
-            return view('user.proizvodi', compact('data'));
+            return view('User.proizvodi', compact('data'));
         }
         $data=proizvod::where('naziv', 'Like', '%'.$search.'%')->get();
-        return view('user.proizvodi', compact('data'));
+        return view('User.proizvodi', compact('data'));
     }
 
     public function dodaj(Request $request ,$id)
@@ -78,7 +78,7 @@ class HomeController extends Controller
         $user=auth()->user();
         $kosarica=kosarica::where('mobitel',$user->phone)->get();
         $count=kosarica::where('mobitel',$user->phone)->count();
-        return view('user.prikazikosaricu',compact('count','kosarica'));
+        return view('User.prikazikosaricu',compact('count','kosarica'));
     }
 
     public function obrisikosaricu($id)
